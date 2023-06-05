@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import * as S from './Statistics.styled';
 
-export default function ({ title, stats}) {
+export default function Statistics({ title, stats}) {
 
     return (
         <S.Container>
@@ -22,4 +22,14 @@ export default function ({ title, stats}) {
 
         </S.Container>
     );
+};
+
+Statistics.propTypes = {
+    stats: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            label: PropTypes.string.isRequired,
+            percentage: PropTypes.number.isRequired
+        })
+    ).isRequired
 };
